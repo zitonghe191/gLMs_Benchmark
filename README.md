@@ -154,5 +154,3 @@ a new naming scheme needs its own entries there.
 
 - `dnabench/env.py` sets deterministic seeds and `CUBLAS_WORKSPACE_CONFIG`, and
   defaults `HF_ENDPOINT` to a Hugging Face mirror; it runs on `import dnabench`.
-- Memory: GENA-LM loads its modeling code from a local cache directory
-  (`local_cache` in `models.yaml`).
