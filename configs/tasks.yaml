@@ -1,0 +1,99 @@
+2kb_promoter:
+  reader: single_csv
+  data_dir: /path/to/your/data/file
+  classifier: binary
+
+Promoter:
+  reader: single_csv
+  data_dir: /path/to/your/data/file
+  classifier: binary
+
+Splice_site:
+  reader: single_csv
+  data_dir: /path/to/your/data/file
+  classifier: binary
+
+TFBS:
+  reader: single_csv
+  data_dir: /path/to/your/data/file
+  classifier: binary
+
+Yeast:
+  reader: single_csv
+  data_dir: /path/to/your/data/file
+  classifier: binary
+
+Methylation:
+  reader: single_csv
+  data_dir: /path/to/your/data/file
+  classifier: binary
+
+Fungi:
+  reader: single_csv
+  data_dir: /path/to/your/data/file
+  classifier: multiclass
+  num_classes: 20
+  model_overrides:
+    DNABERT-2: {hidden_dims: [256, 128, 64]}
+
+Virus:
+  reader: single_csv
+  data_dir: /path/to/your/data/file
+  classifier: multiclass
+  num_classes: 25
+  model_overrides:
+    DNABERT-2: {hidden_dims: [256, 128, 64]}
+
+EPI:
+  reader: paired_csv
+  data_dir: /path/to/your/data/file
+  classifier: binary
+  cell_lines: [GM12878, HUVEC, HeLa-S3, IMR90, K562, NHEK]
+  model_overrides:
+    DNABERT-2: {hidden_dims: [768, 256, 64]}
+    GENA-LM: {hidden_dims: [768, 256, 64]}
+    GROVER: {hidden_dims: [768, 256, 64]}
+    HyenaDNA-small: {hidden_dims: [256, 64]}
+    NTv2-250m: {hidden_dims: [768, 256, 64]}
+    NTv2-50m: {hidden_dims: [768, 256, 64]}
+
+CTCF-loop:
+  reader: paired_fasta
+  data_dir: /path/to/your/data/file
+  classifier: binary
+  cell_lines: [K562, MCF7]
+  pair_types: [RR, FF, FR, RF]
+  model_overrides:
+    DNABERT-2: {hidden_dims: [768, 256, 64]}
+    GENA-LM: {hidden_dims: [768, 256, 64]}
+    GROVER: {hidden_dims: [768, 256, 64]}
+    HyenaDNA-small: {hidden_dims: [256, 64]}
+    NTv2-250m: {hidden_dims: [768, 256, 64]}
+    NTv2-50m: {hidden_dims: [768, 256, 64]}
+  file_mapping:
+    K562:
+      RR:
+        left: [K562_RR_left_train.fasta, K562_RR_left_test.fasta]
+        right: [K562_RR_right_train.fasta, K562_RR_right_test.fasta]
+      FF:
+        left: [K562_FF_left_train.fasta, k562_FF_left_test.fasta]
+        right: [K562_FF_right_train.fasta, K562_FF_right_test.fasta]
+      FR:
+        left: [k562_FR_F_train.fasta, k562_FR_F_test.fasta]
+        right: [k562_FR_R_train.fasta, k562_FR_R_test.fasta]
+      RF:
+        left: [K562_RF_F_train.fasta, K562_RF_F_test.fasta]
+        right: [K562_RF_R_train.fasta, K562_RF_R_test.fasta]
+    MCF7:
+      RR:
+        left: [MCF7_RR_left_train.fasta, MCF7_RR_left_test.fasta]
+        right: [MCF7_RR_right_train.fasta, MCF7_RR_right_test.fasta]
+      FF:
+        left: [MCF7_FF_left_train.fasta, MCF7_FF_left_test.fasta]
+        right: [MCF7_FF_right_train.fasta, MCF7_FF_right_test.fasta]
+      FR:
+        left: [MCF7_FR_F_train.fasta, MCF7_FR_F_test.fasta]
+        right: [MCF7_FR_R_train.fasta, MCF7_FR_R_test.fasta]
+      RF:
+        left: [MCF7_RF_F_train.fasta, MCF7_RF_F_test.fasta]
+        right: [MCF7_RF_R_train.fasta, MCF7_RF_R_test.fasta]

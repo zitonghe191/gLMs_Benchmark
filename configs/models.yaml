@@ -1,0 +1,63 @@
+DNABERT-2:
+  adapter: dnabert2
+  tag: dnabert2
+  hf_id: zhihan1996/DNABERT-2-117M
+  trust_remote_code: true
+  layers: [2, 4, 6, 8, 10, 12]
+  hidden_dims: [256, 128, 64]
+
+GENA-LM:
+  adapter: gena
+  tag: gena
+  hf_id: AIRI-Institute/gena-lm-bert-base
+  local_cache: ~/.cache/huggingface/hub/models--AIRI-Institute--gena-lm-bert-base/snapshots/*/
+  layers: [2, 4, 6, 8, 10, 12]
+  hidden_dims: [256, 128, 64]
+
+GROVER:
+  adapter: grover
+  tag: grover
+  hf_id: PoetschLab/GROVER
+  trust_remote_code: true
+  layers: [2, 4, 6, 8, 10, 12]
+  hidden_dims: [256, 128, 64]
+
+HyenaDNA-128:
+  adapter: hyena
+  tag: hyenadna
+  hf_id: LongSafari/hyenadna-tiny-1k-seqlen-hf
+  model_dir: dnabench/HyenaDNA_128
+  layers: [1, 2]
+  hidden_dims: [64, 32]
+
+HyenaDNA-256:
+  adapter: hyena
+  tag: hyenadna256
+  hf_id: LongSafari/hyenadna-tiny-1k-seqlen-d256-hf
+  model_dir: dnabench/HyenaDNA_256
+  layers: [1, 2]
+  hidden_dims: [128, 64]
+
+HyenaDNA-small:
+  adapter: hyena
+  tag: hyenasmall
+  hf_id: LongSafari/hyenadna-small-32k-seqlen-hf
+  model_dir: dnabench/HyenaDNA_small
+  layers: [1, 2, 3, 4]
+  hidden_dims: [128, 64]
+
+NTv2-250m:
+  adapter: ntv2
+  tag: ntv2_250m
+  hf_id: InstaDeepAI/nucleotide-transformer-v2-250m-multi-species
+  trust_remote_code: true
+  layers: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]
+  hidden_dims: [256, 128, 64]
+
+NTv2-50m:
+  adapter: ntv2
+  tag: ntv2_50m
+  hf_id: InstaDeepAI/nucleotide-transformer-v2-50m-multi-species
+  trust_remote_code: true
+  layers: [2, 4, 6, 8, 10, 12]
+  hidden_dims: [256, 128, 64]
